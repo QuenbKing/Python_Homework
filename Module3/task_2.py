@@ -4,26 +4,19 @@ list2 = [2, 4, 5, 6, 8, 10]
 res = []
 l1_index = 0
 l2_index = 0
+last_append_num = 0
 
-while l1_index < len(list1) and l2_index < len(list2):
-    if list1[l1_index] < list2[l2_index]:
-        res.append(list1[l1_index])
-        l1_index += 1
-    elif list1[l1_index] > list2[l2_index]:
-        res.append(list2[l2_index])
+for _ in range(len(list1) + len(list2)):
+    if l2_index != len(list2) and (l1_index == len(list1) or list1[l1_index] > list2[l2_index]):
+        if list2[l2_index] != last_append_num:
+            res.append(list2[l2_index])
+            last_append_num = list2[l2_index]
         l2_index += 1
     else:
-        res.append(list1[l1_index])
+        if list1[l1_index] != last_append_num:
+            res.append(list1[l1_index])
+            last_append_num = list1[l1_index]
         l1_index += 1
-        l2_index += 1
-
-while l1_index < len(list1):
-    res.append(list1[l1_index])
-    l1_index += 1
-
-while l2_index < len(list2):
-    res.append(list2[l2_index])
-    l2_index += 1
 
 print(res)
 
