@@ -21,9 +21,8 @@ for i_new_nums in range(0, len(nums)):
     for j_new_nums in range(i_new_nums, len(nums)):
         new_nums.append(nums[j_new_nums])
     if is_palindrome(new_nums):
-        for i_res in range(0, i_new_nums):
+        for i_res in range(i_new_nums - 1, -1, -1):
             res.append(nums[i_res])
-        res.reverse()
         break
     new_nums = []
 
