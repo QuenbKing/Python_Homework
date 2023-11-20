@@ -13,7 +13,7 @@ class Matrix:
             return False
 
     def valid_mul(self, other):
-        if isinstance(other, Matrix) and self.rows_count == other.columns_count:
+        if isinstance(other, Matrix) and self.columns_count == other.rows_count:
             return True
         else:
             print('not valid Matrix\n')
